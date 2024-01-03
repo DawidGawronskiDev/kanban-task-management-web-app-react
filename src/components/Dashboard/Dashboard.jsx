@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useContext } from "react";
 import { AppContext } from "../../App";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export const loader = async ({ params }) => {
-  console.log(params);
   return null;
 };
 
@@ -20,6 +19,7 @@ const Dashboard = () => {
       {currentBoard.columns.map((column) => (
         <Column key={column.name} column={column} />
       ))}
+      <Outlet />
     </main>
   );
 };
@@ -40,7 +40,7 @@ const Column = ({ column }) => {
 const Task = ({ task }) => {
   return (
     <li>
-      <Link>{task.title}</Link>
+      <Link to={`task/${task.title}/view`}>{task.title}</Link>
     </li>
   );
 };

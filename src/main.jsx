@@ -7,6 +7,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard, {
   loader as dashboardLoader,
 } from "./components/Dashboard/Dashboard.jsx";
+import TaskView, {
+  loader as taskViewLoader,
+} from "./components/TaskView/TaskView.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,9 +17,16 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/board/:boardName",
+        path: "board/:boardName",
         element: <Dashboard />,
         loader: dashboardLoader,
+        children: [
+          {
+            path: "task/:taskName/view",
+            element: <TaskView />,
+            loader: taskViewLoader,
+          },
+        ],
       },
     ],
   },
