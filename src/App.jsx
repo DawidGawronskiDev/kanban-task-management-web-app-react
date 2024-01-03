@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import Aside from "./components/Aside/Aside";
 import Header from "./components/Header/Header";
+import { Outlet } from "react-router-dom";
 
 export const AppContext = createContext({
   data: {},
@@ -50,6 +51,7 @@ const App = () => {
       >
         <Header />
         <Aside />
+        <Outlet />
       </AppContext.Provider>
     );
   }

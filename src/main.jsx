@@ -4,11 +4,21 @@ import App from "./App.jsx";
 import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Dashboard, {
+  loader as dashboardLoader,
+} from "./components/Dashboard/Dashboard.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    children: [
+      {
+        path: "/board/:boardName",
+        element: <Dashboard />,
+        loader: dashboardLoader,
+      },
+    ],
   },
 ]);
 

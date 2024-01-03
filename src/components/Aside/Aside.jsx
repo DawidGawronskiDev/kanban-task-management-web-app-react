@@ -34,7 +34,7 @@ const BoardLink = ({ board, currentBoardName }) => {
       }}
       className={`${board.name === currentBoardName ? "bg-purple-300" : ""}`}
     >
-      <Link to={`/${board.name}`}>{board.name}</Link>
+      <Link to={`/board/${board.name}`}>{board.name}</Link>
     </li>
   );
 };
