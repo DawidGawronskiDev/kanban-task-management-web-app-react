@@ -1,7 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { redirect } from "react-router-dom";
+import Aside from "./components/Aside/Aside";
 
-const AppContext = createContext({
+export const AppContext = createContext({
   data: {},
   currentBoardName: "",
 });
@@ -38,9 +39,15 @@ const App = () => {
     }
   }, [data]);
 
+  const handleCurrentBoardName = (value) => {
+    setCurrentBoardName(value);
+  };
+
   return (
-    <AppContext.Provider value={{ data, currentBoardName }}>
-      <span>Hello World!</span>
+    <AppContext.Provider
+      value={{ data, currentBoardName, handleCurrentBoardName }}
+    >
+      <Aside />
     </AppContext.Provider>
   );
 };
