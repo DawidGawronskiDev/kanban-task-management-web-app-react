@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
-import { redirect } from "react-router-dom";
 import Aside from "./components/Aside/Aside";
+import Header from "./components/Header/Header";
 
 export const AppContext = createContext({
   data: {},
@@ -43,13 +43,16 @@ const App = () => {
     setCurrentBoardName(value);
   };
 
-  return (
-    <AppContext.Provider
-      value={{ data, currentBoardName, handleCurrentBoardName }}
-    >
-      <Aside />
-    </AppContext.Provider>
-  );
+  if (data && currentBoardName) {
+    return (
+      <AppContext.Provider
+        value={{ data, currentBoardName, handleCurrentBoardName }}
+      >
+        <Header />
+        <Aside />
+      </AppContext.Provider>
+    );
+  }
 };
 
 export default App;
