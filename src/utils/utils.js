@@ -10,4 +10,13 @@ const findTask = (data, taskName) => {
   return null;
 };
 
-export { findTask };
+const findSubtask = (data, subtaskName) => {
+  for (const board of data.boards) {
+    for (const column of board.columns) {
+      console.log(column);
+    }
+  }
+  return null;
+};
+
+export { findTask, findSubtask };

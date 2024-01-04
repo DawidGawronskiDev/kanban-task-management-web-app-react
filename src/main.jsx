@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         loader: dashboardLoader,
         children: [
           {
-            path: "task/:taskName/view",
+            path: "task/:taskTitle/view",
             element: <TaskView />,
             loader: taskViewLoader,
           },
